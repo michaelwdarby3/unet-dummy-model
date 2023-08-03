@@ -16,4 +16,3 @@ training.py is where the work of training an existing model is done. It's fairly
 Shifting does not work as part of the TSConv block itself, so the shift operation has been moved to the Trainer.fit calls. This is not ideal, but it's the best I have for now pending further research.
 
 There's an issue with the shapes being actually input into the model itself I can't resolve for now; getting the model this far took significant time, and so I'm calling it here as enough.
-
