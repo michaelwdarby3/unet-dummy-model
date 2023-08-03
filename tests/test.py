@@ -1,12 +1,7 @@
 import numpy as np
 import tensorflow as tf
 
-import unet_with_tsconv
-import unet_without_tsconv
-import training
-import generic_conv_utils
-
-
+from src import generic_conv_utils, training, unet_with_tsconv, unet_without_tsconv
 
 
 def create_mock_data(batch_size=1, frequency_bins=256, timesteps=10, channels=1):
@@ -138,9 +133,9 @@ class TestTSConvModel:
         kernel_size = (3,3)
 
         model = unet_with_tsconv.build_model(filters=filters,
-                                                frequency_bins=frequency_bins,
-                                                time_steps=time_steps,
-                                                channels=channels)
+                                             frequency_bins=frequency_bins,
+                                             time_steps=time_steps,
+                                             channels=channels)
 
         input_shape = model.get_layer("inputs").output.shape
         assert tuple(input_shape) == (None, frequency_bins, time_steps, channels)
